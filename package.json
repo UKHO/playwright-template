@@ -1,0 +1,21 @@
+{
+  "name": "playwright-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHO/playwright-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UKHO/playwright-template/issues"
+  },
+  "homepage": "https://github.com/UKHO/playwright-template#readme",
+  "devDependencies": {
+    "@playwright/test": "1.19.2"
+  }
+}
