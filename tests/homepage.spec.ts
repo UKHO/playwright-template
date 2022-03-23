@@ -1,11 +1,21 @@
 import { test, expect } from '@playwright/test';
+import { HomePage } from './page-object-model/homepage';
+import { HomePageAssertions } from './page-object-model/homepageAssertions';
 
 test.describe('Home page tests', () => {
+  let homePage: HomePage;
+  let homePageAssertions: HomePageAssertions;
+
   test.beforeEach(async ({ page }) => {
-    await page.goto('file:///C:/Dev/playwright-template/src/index.html');
+    homePage = new HomePage(page);
+    homePageAssertions = new HomePageAssertions(page);
+
+    await homePage.navigateTo();
   });
 
-  test('should be on home page', async ({ page }) => {
-    await expect(page.locator('h1')).toHaveText('Welcome to Home Page');
+  test('should be on home page', async () => {
+    await homePageAssertions.shouldHaveHeader('Welcome to Home Page');
   });
+
+
 });
