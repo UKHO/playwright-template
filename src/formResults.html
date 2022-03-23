@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Form Results</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="./index.html">Home</a>
+        <a href="./form.html" class="active">The Form</a>
+        <a href="./exampleResults.html">Example Results</a>
+        <a href="./about.html">About</a>
+    </div>
+
+    <h1>Welcome to Form Results</h1>
+
+    <table id="resultsTable" onload="populateTable">
+        <thead>
+            <th>Question</th>
+            <th>Answer</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+
+<script>
+    function populateTable() {
+        let params = new URLSearchParams(location.search);
+        
+        let table = document.getElementById("resultsTable");
+
+        //params.get('name') # => "n1"
+        //params.getAll('name') # => ["n1", "n2"]
+    }
+</script>
+</html>
