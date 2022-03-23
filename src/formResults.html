@@ -20,23 +20,23 @@
 
     <h1>Welcome to Form Results</h1>
 
-    <table id="resultsTable" onload="populateTable">
-        <thead>
-            <th>Question</th>
-            <th>Answer</th>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <table id="resultsTable"></table>
+
+    <script>
+        (function () {
+            const params = new URLSearchParams(location.search);
+            const table = document.getElementById("resultsTable");
+
+            params.forEach((value, key) => {
+                let row = table.insertRow(-1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+
+                cell1.innerHTML = key;
+                cell2.innerHTML = value;
+            });
+        })();
+    </script>
 </body>
 
-<script>
-    function populateTable() {
-        let params = new URLSearchParams(location.search);
-        
-        let table = document.getElementById("resultsTable");
-
-        //params.get('name') # => "n1"
-        //params.getAll('name') # => ["n1", "n2"]
-    }
-</script>
 </html>
