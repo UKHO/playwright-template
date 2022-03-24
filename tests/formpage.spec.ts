@@ -1,32 +1,34 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { FormPage } from './page-object-model/formpage';
-import { FormPageAssertions } from './page-object-model/formpageAssertions';
-import { ResultsPageAssertions } from './page-object-model/resultsPageAssertions';
+import { ResultsPage } from './page-object-model/resultsPage';
 
 test.describe('Form page tests', () => {
     let formPage: FormPage;
-    let formPageAssertions: FormPageAssertions;
-    let resultsPageAssertions: ResultsPageAssertions;
+    let resultsPage: ResultsPage;
 
   test.beforeEach(async ({ page }) => {
     formPage = new FormPage(page);
-    formPageAssertions = new FormPageAssertions(page);
-    resultsPageAssertions = new ResultsPageAssertions(page);
+    resultsPage = new ResultsPage(page);
 
     await formPage.navigateTo();
   });
 
-  test('email should contain @', async () => {
+  test.only('invalid email should prevent form submit', async () => {
       await formPage.setEmail("abcdefgh");
-      await formPageAssertions.shouldHaveEmailValidationError();
+      await formPage.expect.toHaveEmailValidationError();
 
       await formPage.submitForm();
-      await formPageAssertions.shouldBeOnFormPage();
 
+      await formPage.expect.toBeOnFormPage();
+  });
+  
+  test('valid email should allow form submit', async () => {
       await formPage.setEmail("abcdefgh@me.com");
-      await formPageAssertions.shouldNotHaveEmailValidationError();
+      await formPage.expect.notToHaveEmailValidationError();
+
       await formPage.submitForm();
-      await resultsPageAssertions.shouldBeOnResultsPage();
+
+      await resultsPage.expect.toBeOnResultsPage();
   });
 
 

@@ -2,15 +2,16 @@ import { expect } from "@playwright/test";
 import { FormPage } from "./formpage";
 
 export class FormPageAssertions extends FormPage{
-    async shouldBeOnFormPage(): Promise<void> {
+    async toBeOnFormPage(): Promise<void> {
         await expect(this.page).toHaveURL(".+/form\.html")
     }
 
-    async shouldHaveEmailValidationError(): Promise<void>{
-        expect(this.headerLocator).toHaveProperty("validity.valid", false);
+    async toHaveEmailValidationError(): Promise<void>{
+        await this.page.pause();
+        await expect(this.emailFieldLocator).toHaveJSProperty("validity.valid", false);
     }
 
-    async shouldNotHaveEmailValidationError(): Promise<void>{
-        expect(this.headerLocator).toHaveProperty("validity.valid", true);
+    async notToHaveEmailValidationError(): Promise<void>{
+        await expect(this.emailFieldLocator).toHaveJSProperty("validity.valid", true);
     }
 }

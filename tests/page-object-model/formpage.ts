@@ -1,13 +1,16 @@
 import { Page, Locator } from "@playwright/test";
+import { FormPageAssertions } from "./formpageAssertions";
 
 export class FormPage {
     readonly page: Page;
+    readonly expect: FormPageAssertions;
 
     readonly headerLocator: Locator;
     readonly emailFieldLocator: Locator;
 
     constructor(page: Page) {
         this.page = page;
+        this.expect = new FormPageAssertions(page);
 
         this.headerLocator = this.page.locator('h1');
         this.emailFieldLocator = this.page.locator('#Email');
