@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>The Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="topnav" id="navBar">
+        <a href="./index.html">Home</a>
+        <a href="./form.html" class="active">The Form</a>
+        <a href="./exampleResults.html">Example Results</a>
+        <a href="./about.html">About</a>
+    </div>
+
+    <h1>Welcome to The Form</h1>
+
+    <!--Form goes here-->
+
+    <form action="./formResults.html">
+        <label for="First Name">First name:</label>
+        <input type="text" id="First Name" name="First Name"><br>
+        <label for="Last Name">Last name:</label>
+        <input type="text" id="Last Name" name="Last Name"><br>
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email"><br>
+
+        <br>
+        <input type="radio" id="html" name="Pick one" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="Pick one" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="Pick one" value="JavaScript">
+        <label for="javascript">JavaScript</label><br>
+
+        <br>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label><br>
+
+        <br>
+        <label for="Give a colour">Give a colour:</label>
+        <input type="color" id="Give a colour" name="Give a colour"><br>
+
+        <br>
+        <label for="Give a date">Give a date:</label>
+        <input type="date" id="Give a date" name="Give a date"><br>
+
+        <!-- Don't forget dropdown! -->
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

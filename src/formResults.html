@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Form Results</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="topnav" id="navBar">
+        <a href="./index.html">Home</a>
+        <a href="./form.html" class="active">The Form</a>
+        <a href="./exampleResults.html">Example Results</a>
+        <a href="./about.html">About</a>
+    </div>
+
+    <h1>Welcome to Form Results</h1>
+
+    <table id="resultsTable"></table>
+
+    <script>
+        (function () {
+            const params = new URLSearchParams(location.search);
+            const table = document.getElementById("resultsTable");
+
+            params.forEach((value, key) => {
+                let row = table.insertRow(-1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+
+                cell1.innerHTML = key;
+                cell2.innerHTML = value;
+            });
+        })();
+    </script>
+</body>
+
+</html>
