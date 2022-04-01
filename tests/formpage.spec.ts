@@ -6,30 +6,43 @@ test.describe('Form page tests', () => {
     let formPage: FormPage;
     let resultsPage: ResultsPage;
 
-  test.beforeEach(async ({ page }) => {
-    formPage = new FormPage(page);
-    resultsPage = new ResultsPage(page);
+    test.beforeEach(async ({ page }) => {
+        formPage = new FormPage(page);
+        resultsPage = new ResultsPage(page);
 
-    await formPage.navigateTo();
-  });
+        await formPage.navigateTo();
+    });
 
-  test.only('invalid email should prevent form submit', async () => {
-      await formPage.setEmail("abcdefgh");
-      await formPage.expect.toHaveEmailValidationError();
+    test.only('invalid email should prevent form submit', async () => {
+        await formPage.setEmail("abcdefgh");
+        await formPage.expect.toHaveEmailValidationError();
 
-      await formPage.submitForm();
+        await formPage.submitForm();
 
-      await formPage.expect.toBeOnFormPage();
-  });
-  
-  test('valid email should allow form submit', async () => {
-      await formPage.setEmail("abcdefgh@me.com");
-      await formPage.expect.notToHaveEmailValidationError();
+        await formPage.expect.toBeOnFormPage();
+    });
 
-      await formPage.submitForm();
+    test('valid email should allow form submit', async () => {
+        await formPage.setEmail("abcdefgh@me.com");
+        await formPage.expect.notToHaveEmailValidationError();
 
-      await resultsPage.expect.toBeOnResultsPage();
-  });
+        await formPage.submitForm();
+
+        await resultsPage.expect.toBeOnResultsPage();
+    });
+
+    test('can fill in a form :-)', async () => {
+        await formPage.fillForm(
+            {
+                Firstname: "Sara",
+                Lastname: "The Best",
+                Email: "Sara@thebest.com"
+            });
+
+        await formPage.submitForm();
+
+        await resultsPage.expect.toBeOnResultsPage();
+    });
 
 
 });

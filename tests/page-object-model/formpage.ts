@@ -1,4 +1,5 @@
 import { Page, Locator } from "@playwright/test";
+import { Data } from "./data";
 import { FormPageAssertions } from "./formpageAssertions";
 
 export class FormPage {
@@ -28,7 +29,7 @@ export class FormPage {
         throw new Error('Method not implemented.');
     }
 
-    async fillForm(arg0: { email: string; }) : Promise<void> {
-        throw new Error('Method not implemented.');
+    async fillForm(data: Data) : Promise<void> {
+        await this.emailFieldLocator.fill(data.Email);
     }
 }
