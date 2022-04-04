@@ -1,0 +1,18 @@
+<button (click)='toggleTable()'>{{show? 'Hide': 'Show'}} table</button>
+<div *ngIf='show'>
+  <br>
+  Filter to <input type="text" [(ngModel)]='filter' />
+
+  <table>
+    <thead>
+      <th>Form Field</th>
+      <th>Answer Given</th>
+    </thead>
+    <tbody>
+      <tr *ngFor='let result of filteredResults'>
+        <td>{{result[0]}}</td>
+        <td>{{result[1]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,64 @@
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <div class="form-group">
+    <label for="firstName">First name:</label>
+    <input type="text" id="firstName" required [(ngModel)]="model.Firstname" name="firstName" #firstName="ngModel">
+    <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+      Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Last Name">Last name:</label>
+    <input type="text" id="Last Name" name="Last Name" [(ngModel)]="model.Lastname" #lastName="ngModel" minlength="4">
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+      <div *ngIf="lastName.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Email">Email:</label>
+    <input type="email" id="Email" name="Email" required [(ngModel)]="model.Email" #email="ngModel" email>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Valid email required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="radio" id="html" name="Pick one" value="HTML" [(ngModel)]="model.FavLang">
+    <label for="html">HTML</label>
+    <input type="radio" id="css" name="Pick one" value="CSS" [(ngModel)]="model.FavLang">
+    <label for="css">CSS</label>
+    <input type="radio" id="javascript" name="Pick one" value="JavaScript" [(ngModel)]="model.FavLang">
+    <label for="javascript">JavaScript</label>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check" *ngFor="let vehicle of vehicles">
+      <input class="form-check-input" (change)="onCheckboxChange(vehicle, $event)" name="{{ vehicle }}"
+        type="checkbox" id="{{vehicle}}">
+      <label class="form-check-label" for="{{vehicle}}">
+        I have a {{vehicle}}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Give a colour">Give a colour:</label>
+    <input type="color" id="Give a colour" name="Give a colour" [(ngModel)]="model.Colour">
+  </div>
+
+  <div class="form-group">
+    <label for="Give a date">Give a date:</label>
+    <input type="date" id="Give a date" name="Give a date" [(ngModel)]="model.Date">
+  </div>
+
+  <div class="form-group">
+    <label for="power">Hero Power:</label>
+    <select class="form-control" [(ngModel)]="model.HeroPower" id="power" required name="heroPower">
+      <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="!myForm.form.valid">Submit</button>
+</form>
