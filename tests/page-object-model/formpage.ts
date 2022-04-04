@@ -1,35 +1,49 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 import { Data } from "./data";
-import { FormPageAssertions } from "./formpageAssertions";
 
 export class FormPage {
-    readonly page: Page;
-    readonly expect: FormPageAssertions;
+    readonly expect: FormPageAssertions
+    readonly _headerLocator: Locator;
+    readonly _emailFieldLocator: Locator;
 
-    readonly headerLocator: Locator;
-    readonly emailFieldLocator: Locator;
+    constructor(readonly page: Page) {
+        this.expect = new FormPageAssertions(this);
 
-    constructor(page: Page) {
-        this.page = page;
-        this.expect = new FormPageAssertions(page);
-
-        this.headerLocator = this.page.locator('h1');
-        this.emailFieldLocator = this.page.locator('#Email');
+        this._headerLocator = this.page.locator('h1');
+        this._emailFieldLocator = this.page.locator('#Email');
     }
 
-    async navigateTo() : Promise<void>{
-        await this.page.goto('file:///C:/Dev/playwright-template/src/form.html');
+    async navigateTo(): Promise<void> {
+        await this.page.goto('/form');
     }
 
-    async setEmail(email: string) : Promise<void> {
-        await this.emailFieldLocator.fill(email);
+    async setEmail(email: string): Promise<void> {
+        await this._emailFieldLocator.fill(email);
     }
 
-    async submitForm() : Promise<void> {
+    async submitForm(): Promise<void> {
         throw new Error('Method not implemented.');
     }
 
-    async fillForm(data: Data) : Promise<void> {
-        await this.emailFieldLocator.fill(data.Email);
+    async fillForm(data: Data): Promise<void> {
+        await this._emailFieldLocator.fill(data.Email);
+    }
+}
+
+class FormPageAssertions {
+    constructor(readonly formPage: FormPage) {
+    }
+
+    async toBeOnFormPage(): Promise<void> {
+        await expect(this.formPage.page).toHaveURL(".+/form\.html")
+    }
+
+    async toHaveEmailValidationError(): Promise<void> {
+        await this.formPage.page.pause();
+        await expect(this.formPage._emailFieldLocator).toHaveJSProperty("validity.valid", false);
+    }
+
+    async notToHaveEmailValidationError(): Promise<void> {
+        await expect(this.formPage._emailFieldLocator).toHaveJSProperty("validity.valid", true);
     }
 }

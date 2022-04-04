@@ -1,16 +1,25 @@
 import { Page, Locator } from "@playwright/test";
-import { ResultsPageAssertions } from "./resultsPageAssertions";
 
 export class ResultsPage {
     readonly page: Page;
     readonly expect: ResultsPageAssertions;
 
-    readonly headerLocator: Locator;
+    readonly _headerLocator: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.expect = new ResultsPageAssertions(page);
+        this.expect = new ResultsPageAssertions(this);
         
-        this.headerLocator = this.page.locator('h1');
+        this._headerLocator = this.page.locator('h1');
+    }
+}
+
+class ResultsPageAssertions {
+    constructor(readonly resultsPage: ResultsPage) {
+        
+    }
+
+    async toBeOnResultsPage() {
+        throw new Error('Method not implemented.');
     }
 }

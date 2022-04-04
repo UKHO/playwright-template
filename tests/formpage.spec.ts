@@ -13,7 +13,7 @@ test.describe('Form page tests', () => {
         await formPage.navigateTo();
     });
 
-    test.only('invalid email should prevent form submit', async () => {
+    test('invalid email should prevent form submit', async () => {
         await formPage.setEmail("abcdefgh");
         await formPage.expect.toHaveEmailValidationError();
 
