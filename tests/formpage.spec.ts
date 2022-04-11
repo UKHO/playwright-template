@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { FormPage } from './page-object-model/formpage';
 import { ResultsPage } from './page-object-model/resultsPage';
 
-test.describe('Form page tests', () => {
+test.describe('Form page', () => {
     let formPage: FormPage;
     let resultsPage: ResultsPage;
 
@@ -13,36 +13,34 @@ test.describe('Form page tests', () => {
         await formPage.navigateTo();
     });
 
-    test('invalid email should prevent form submit', async () => {
-        await formPage.setEmail("abcdefgh");
-        await formPage.expect.toHaveEmailValidationError();
+    test.describe('invalid details should prevent form submit', async () => {
+        test('blank', async () => {
+            await formPage.expect.toHaveDisabledSubmitButton();
+        });
 
-        await formPage.submitForm();
-
-        await formPage.expect.toBeOnFormPage();
+        test('short last name', async () => {
+            await formPage.fillFormWithValidDetails();
+            await formPage.setLastName("Sm");
+            await formPage.expect.toHaveDisabledSubmitButton();
+        });
+        
+        test('invalid email', async () => {
+            await formPage.fillFormWithValidDetails();
+            await formPage.setEmail("not an email");
+            await formPage.expect.toHaveDisabledSubmitButton();
+        });
+        
+        test('missing hero power', async () => {
+            await formPage.fillFormWithValidDetailsExceptHeroPower();
+            await formPage.expect.toHaveDisabledSubmitButton();
+        });
     });
 
-    test('valid email should allow form submit', async () => {
-        await formPage.setEmail("abcdefgh@me.com");
-        await formPage.expect.notToHaveEmailValidationError();
-
+    test('valid details should allow form submit and display details on results page', async () => {
+        await formPage.fillFormWithValidDetails();
         await formPage.submitForm();
-
+        
         await resultsPage.expect.toBeOnResultsPage();
+        await resultsPage.expect.toHaveValuesFromFormPage();
     });
-
-    test('can fill in a form :-)', async () => {
-        await formPage.fillForm(
-            {
-                Firstname: "Sara",
-                Lastname: "The Best",
-                Email: "Sara@thebest.com"
-            });
-
-        await formPage.submitForm();
-
-        await resultsPage.expect.toBeOnResultsPage();
-    });
-
-
 });

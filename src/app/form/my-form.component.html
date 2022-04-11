@@ -7,8 +7,8 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="Last Name">Last name:</label>
-    <input type="text" id="Last Name" name="Last Name" [(ngModel)]="model.Lastname" #lastName="ngModel" minlength="4">
+    <label for="lastName">Last name:</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="model.Lastname" #lastName="ngModel" minlength="4">
     <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
       <div *ngIf="lastName.errors?.['minlength']">
         Name must be at least 4 characters long.
@@ -17,8 +17,8 @@
   </div>
 
   <div class="form-group">
-    <label for="Email">Email:</label>
-    <input type="email" id="Email" name="Email" required [(ngModel)]="model.Email" #email="ngModel" email>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required [(ngModel)]="model.Email" #email="ngModel" email>
     <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
       Valid email required
     </div>
@@ -44,13 +44,13 @@
   </div>
 
   <div class="form-group">
-    <label for="Give a colour">Give a colour:</label>
-    <input type="color" id="Give a colour" name="Give a colour" [(ngModel)]="model.Colour">
+    <label for="colour">Give a colour:</label>
+    <input type="color" id="colour" name="colour" [(ngModel)]="model.Colour">
   </div>
 
   <div class="form-group">
-    <label for="Give a date">Give a date:</label>
-    <input type="date" id="Give a date" name="Give a date" [(ngModel)]="model.Date">
+    <label for="date">Give a date:</label>
+    <input type="date" id="date" name="date" [(ngModel)]="model.Date">
   </div>
 
   <div class="form-group">
