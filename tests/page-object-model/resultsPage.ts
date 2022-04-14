@@ -14,7 +14,7 @@ class ResultsPageAssertions {
     constructor(readonly resultsPage: ResultsPage) {}
 
     async toBeOnResultsPage() {
-        expect(this.resultsPage.page).toHaveURL("/form-results")
+        await expect(this.resultsPage.page).toHaveURL("/form-results")
     }
     
     async toHaveValuesFromFormPage() {
