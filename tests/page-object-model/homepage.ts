@@ -1,19 +1,28 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 
 export class HomePage {
-    readonly page: Page;
+    readonly expect: HomePageAssertions;
 
-    readonly headerLocator: Locator;
-    readonly aboutButtonLocator: Locator;
+    readonly _headerLocator: Locator;
+    readonly _aboutButtonLocator: Locator;
 
-    constructor(page: Page) {
-        this.page = page;
+    constructor(readonly page: Page) {
+        this.expect = new HomePageAssertions(this);
 
-        this.headerLocator = this.page.locator('h1');
-        this.aboutButtonLocator = this.page.locator('"Go to About page"');
+        this._headerLocator = this.page.locator('h1');
+        this._aboutButtonLocator = this.page.locator('"Go to About page"');
     }
 
-    async navigateTo() : Promise<void>{
-        await this.page.goto('file:///C:/Dev/playwright-template/src/index.html');
-    }    
+    async navigateTo(): Promise<void> {
+        await this.page.goto('/');
+    }
+}
+
+class HomePageAssertions {
+    constructor(readonly homePage: HomePage) {
+    }
+    
+    async toHaveHeader(expected: string): Promise<void> {
+        await expect(this.homePage._headerLocator).toHaveText(expected);
+    }
 }
