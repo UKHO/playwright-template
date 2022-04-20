@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { FormPage } from './page-object-model/formpage';
-import { ResultsPage } from './page-object-model/resultsPage';
+import { FormPage } from '../page-object-model/formpage';
+import { ResultsPage } from '../page-object-model/resultsPage';
 
 test.describe('Form page', () => {
     let formPage: FormPage;

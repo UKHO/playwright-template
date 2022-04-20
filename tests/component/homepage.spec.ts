@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from './page-object-model/homepage';
+import { test } from '@playwright/test';
+import { HomePage } from '../page-object-model/homepage';
 
 test.describe('Home page tests', () => {
   let homePage: HomePage;
@@ -11,8 +11,7 @@ test.describe('Home page tests', () => {
   });
 
   test('should be on home page', async () => {
-    await homePage.expect.toHaveHeader('Welcome to Home Page');
+    await homePage.expect.toHaveHeader('Welcome');
   });
-
 
 });

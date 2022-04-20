@@ -4,13 +4,11 @@ export class HomePage {
     readonly expect: HomePageAssertions;
 
     readonly _headerLocator: Locator;
-    readonly _aboutButtonLocator: Locator;
 
     constructor(readonly page: Page) {
         this.expect = new HomePageAssertions(this);
 
-        this._headerLocator = this.page.locator('h1');
-        this._aboutButtonLocator = this.page.locator('"Go to About page"');
+        this._headerLocator = this.page.locator('h2');
     }
 
     async navigateTo(): Promise<void> {
