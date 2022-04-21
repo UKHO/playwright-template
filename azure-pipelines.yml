@@ -4,6 +4,8 @@ variables:
 
 pr:
 - main
+trigger: 
+- main
 
 pool:
   vmImage: ubuntu-latest
