@@ -24,8 +24,11 @@ steps:
 - script: |
     npx playwright install
     npx playwright install-deps
+  displayName: 'Install playwright'
+
+- script: |
     npx playwright test
-  displayName: 'run tests'
+  displayName: 'Run UI tests'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
@@ -36,6 +39,7 @@ steps:
   displayName: 'Publish UI test results'
 
 - task: PublishPipelineArtifact@1
+  condition: failed()
   inputs:
     targetPath: '$(Pipeline.Workspace)/test-results'
     artifact: 'Test attachments'
