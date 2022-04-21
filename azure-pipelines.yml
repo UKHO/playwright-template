@@ -17,3 +17,11 @@ steps:
 - script: |
     npx playwright test
   displayName: 'run tests'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: 'JUnit'
+    testResultsFiles: 'uiTestResults.xml'
+    testRunTitle: UI test results
+  displayName: 'Publish UI test results'

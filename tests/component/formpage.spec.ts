@@ -18,7 +18,7 @@ test.describe('Form page', () => {
             await formPage.expect.toHaveDisabledSubmitButton();
         });
 
-        test('short last name', async () => {
+        test.only('short last name', async () => {
             await formPage.fillFormWithValidDetails();
             await formPage.setLastName("Sm");
             await formPage.expect.toHaveDisabledSubmitButton();
