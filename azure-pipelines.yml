@@ -41,6 +41,6 @@ steps:
 - task: PublishPipelineArtifact@1
   condition: failed()
   inputs:
-    targetPath: '$(Pipeline.Workspace)/test-results'
+    targetPath: '$(System.DefaultWorkingDirectory)/test-results'
     artifact: 'Test attachments'
     publishLocation: 'pipeline'
