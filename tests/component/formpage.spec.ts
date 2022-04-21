@@ -36,7 +36,7 @@ test.describe('Form page', () => {
         });
     });
 
-    test('valid details should allow form submit and display details on results page', async () => {
+    test.fixme('valid details should allow form submit and display details on results page', async () => {
         await formPage.fillFormWithValidDetails();
         await formPage.submitForm();
         
