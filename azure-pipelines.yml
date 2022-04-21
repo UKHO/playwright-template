@@ -2,6 +2,9 @@ variables:
 - name: CI
   value: true
 
+pr:
+- main
+
 pool:
   vmImage: ubuntu-latest
 
@@ -20,6 +23,7 @@ steps:
 
 - script: |
     npx playwright install
+    npx playwright install-deps
     npx playwright test
   displayName: 'run tests'
 
