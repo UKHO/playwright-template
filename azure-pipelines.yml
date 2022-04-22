@@ -1,0 +1,48 @@
+variables:
+- name: CI
+  value: true
+
+pr:
+- main
+trigger: 
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+
+  displayName: 'npm install and build'
+
+- script: |
+    npx playwright install
+    npx playwright install-deps
+  displayName: 'Install playwright'
+
+- script: |
+    npx playwright test
+  displayName: 'Run UI tests'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: 'JUnit'
+    testResultsFiles: 'uiTestResults.xml'
+    testRunTitle: UI test results
+  displayName: 'Publish UI test results'
+
+- task: PublishPipelineArtifact@1
+  condition: failed()
+  inputs:
+    targetPath: '$(System.DefaultWorkingDirectory)/test-results'
+    artifact: 'Test attachments'
+    publishLocation: 'pipeline'
