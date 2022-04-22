@@ -10,11 +10,10 @@ export class AppComponent implements OnInit{
   showPopup: boolean = false;
 
   ngOnInit(): void {
-    this.showPopup = true; //Math.random() < 0.5;
+    this.showPopup = Math.random() < 0.5;
   }
 
   closePopup(): void {
     this.showPopup = false;
   }
-
 }
