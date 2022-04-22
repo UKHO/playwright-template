@@ -1,6 +1,7 @@
 import { Page, Locator, expect } from "@playwright/test";
+import { BasePage } from "./basepage";
 
-export class FormPage {
+export class FormPage extends BasePage {
     readonly expect: FormPageAssertions
     readonly _firstnameFieldLocator:Locator;    
     readonly _lastnameFieldLocator: Locator;
@@ -8,7 +9,8 @@ export class FormPage {
     readonly _heroPowerFieldLocator: Locator;
     readonly _submitButtonFieldLocator: Locator;
 
-    constructor(readonly page: Page) {
+    constructor(page: Page) {
+        super(page);
         this.expect = new FormPageAssertions(this);
 
         this._firstnameFieldLocator = this.page.locator('#firstName');
@@ -18,8 +20,8 @@ export class FormPage {
         this._submitButtonFieldLocator = this.page.locator('"Submit"');
     }
 
-    async navigateTo(): Promise<void> {
-        await this.page.goto('/form');
+    override async navigateTo(): Promise<void> {
+        await super.navigateTo('/form')
     }
 
     async submitForm(): Promise<void> {

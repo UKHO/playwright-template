@@ -1,0 +1,51 @@
+.fullscreenpopup {
+    background-color: purple;
+    height: 90vh;
+    width: 90vw;
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5vh;
+
+    border-style: solid;
+    border-width: 0.5vw;
+    border-color: yellow;
+
+    box-shadow: 10px 10px 5px rgb(59, 59, 59);
+}
+
+.fullscreenpopup > p {
+    color: white;
+    font-size: x-large;
+}
+
+.fullscreenpopup > a {
+    color: white;
+    font-size: xx-large;
+    margin: 2vh;
+}
+
+.fullscreenpopup > a:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0.5vw;
+
+    font-size: 45px;
+    font-weight: 600;
+    color: white;
+}
+
+.close:hover {
+    color: grey;
+    cursor: pointer;
+}
