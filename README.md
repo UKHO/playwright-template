@@ -21,4 +21,8 @@ The app will automatically reload if you change any of the source files.
 
 The Azure Devops pipeline is configured to install prerequisites, run the tests, publish test results and then publish test result attachments as a pipeline artifact.
 
-When a test fails in the pipeline it is retried and a trace is recorded of the retry - this trace can be analysed to see the entire flow of the test including the full dom before and after each Playwright action. See [Playwright Trace docs](https://playwright.dev/docs/trace-viewer) for information on how to view the trace.
+When a test fails in the pipeline, Playwright is configured to retry it and record a trace - this trace can be analysed to see the entire flow of the test including the full dom before and after each Playwright action. See [Playwright Trace docs](https://playwright.dev/docs/trace-viewer) for information on how to view the trace.
+
+## Common problems
+
+* Forgetting to `await` a playwright command can cause unpredictable behaviour

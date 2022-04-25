@@ -1,18 +1,20 @@
 import { Page, Locator, expect } from "@playwright/test";
+import { BasePage } from "./basepage";
 
-export class HomePage {
+export class HomePage extends BasePage{
     readonly expect: HomePageAssertions;
 
     readonly _headerLocator: Locator;
 
-    constructor(readonly page: Page) {
+    constructor(page: Page) {
+        super(page);
         this.expect = new HomePageAssertions(this);
 
         this._headerLocator = this.page.locator('h2');
     }
 
-    async navigateTo(): Promise<void> {
-        await this.page.goto('/');
+    override async navigateTo(): Promise<void> {
+        await super.navigateTo('/');
     }
 }
 

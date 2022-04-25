@@ -3,6 +3,11 @@
 <div class="content" role="main">
   <router-outlet></router-outlet>
 </div>
+<div *ngIf="showPopup" class="fullscreenpopup">
+  <span class="close" (click)='closePopup()'>&times;</span>
+  <p>This popup is randomly displayed and blocks other elements on the screen</p>
+  <a (click)='closePopup()'>Click here to hide popup</a>
+</div>
 
 <footer>
   This is a website for testing on, do not use patterns seen here in production
