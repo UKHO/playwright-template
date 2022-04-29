@@ -1,5 +1,7 @@
 <h2>Welcome</h2>
 <p>This is the system under test for the Playwright Template</p>
 
-<button *ngIf="!this.authService.isAuthenticated" routerLink="/login">Login</button>
 <h4 *ngIf="this.authService.isAuthenticated">You are logged in</h4>
+
+<button *ngIf="!this.authService.isAuthenticated" routerLink="/login">Login</button>
+<button *ngIf="this.authService.isAuthenticated" (click)='logout()'>Logout</button>

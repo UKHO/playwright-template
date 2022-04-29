@@ -13,4 +13,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout(): void {
+    this.authService.logout();
+  }
 }
