@@ -8,6 +8,7 @@ import { FormResultsComponent } from './form/form-results.component';
 import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavComponent } from './nav/nav.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavComponent } from './nav/nav.component';
     MyFormComponent,
     FormResultsComponent,
     WelcomeComponent,
-    NavComponent
+    NavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
