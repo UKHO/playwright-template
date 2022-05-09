@@ -17,7 +17,7 @@ export class LoginPage extends BasePage {
     }
 
     override async navigateTo(): Promise<void> {
-        await super.navigateTo('/login')
+        await super.navigateTo('/login');
     }
 
     async submitForm(): Promise<void> {

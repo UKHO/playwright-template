@@ -28,6 +28,10 @@ class HomePageAssertions {
         await expect(this.homePage._headerLocator).toHaveText(expected);
     }
 
+    async toBeOnHomePage(): Promise<void> {
+        await expect(this.homePage.page).toHaveURL('/welcome');
+    }
+
     async toBeLoggedIn(): Promise<void> {
         await expect(this.homePage._loggedInTextLocator).toBeVisible();
     }

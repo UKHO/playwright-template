@@ -45,3 +45,4 @@ Thumbs.db
 test-results/
 playwright-report/
 uiTestResults.xml
+*StorageState.json

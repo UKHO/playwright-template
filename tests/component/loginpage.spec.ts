@@ -13,10 +13,24 @@ test.describe('Login page', () => {
         await loginPage.navigateTo();
     });
 
-    test.only("can log in", async () => {
-        await loginPage.fillFormWithValidDetails();
-        await loginPage.submitForm();
+    test.describe('given clean state', () => {
+        test.use({ storageState: 'cleanStorageState.json' });
 
-        await homepage.expect.toBeLoggedIn();
+        test("should be able to log in", async () => {
+            await loginPage.fillFormWithValidDetails();
+            await loginPage.submitForm();
+
+            // On login success will be redirected to home page 
+            await homepage.expect.toBeLoggedIn();
+        });
+    });
+
+    test.describe('given logged in state', () => {
+        test.use({ storageState: 'loggedInStorageState.json' });
+
+        test("should be redirected to home page", async () => {
+            await homepage.expect.toBeOnHomePage();
+            await homepage.expect.toBeLoggedIn();
+        });
     });
 });

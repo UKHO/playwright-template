@@ -21,6 +21,7 @@ const config: PlaywrightTestConfig = {
      */
     timeout: 5000
   },
+  globalSetup: require.resolve('./tests/global-setup'),
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env['CI'],
   /* Retry on CI only - this will allow us to record a trace*/
@@ -32,6 +33,7 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     screenshot: 'only-on-failure',
+    storageState: 'loggedInStorageState.json',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
