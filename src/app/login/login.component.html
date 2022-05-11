@@ -1,0 +1,26 @@
+<div>
+    <h4>Login - name/pass</h4>
+    <div>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="form-group">
+                <label for="userNameField">Username: </label>
+                <input type="text" id="username" required [(ngModel)]="userName" name="userNameField" #userNameField="ngModel"/>
+                <div [hidden]="userNameField.pristine || userNameField.valid" class="alert alert-danger">
+                    Username is required -> use "name"
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="passwordField">Password: </label>
+                <input type="password" id="password" required [(ngModel)]="password" name="passwordField" #passwordField="ngModel"/>
+                <div [hidden]="passwordField.pristine || passwordField.valid" class="alert alert-danger">
+                    Password is required -> use "pass"
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="!loginForm.form.valid">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

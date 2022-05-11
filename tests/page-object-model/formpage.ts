@@ -21,7 +21,7 @@ export class FormPage extends BasePage {
     }
 
     override async navigateTo(): Promise<void> {
-        await super.navigateTo('/form')
+        await super.navigateTo('/form');
     }
 
     async submitForm(): Promise<void> {
