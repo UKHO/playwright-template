@@ -43,16 +43,11 @@ This exemplar showcases a Page Object Model pattern. Good use of this pattern wi
 
 Within the tests folder there is a sub folder for each type of test and a sub folder for the page object model. The page object model is shared between the tests.
 
-* tests
-  * a11y
-  * component
-  * page-object-model
-
 The `page-object-model` folder contains a file for each web page - within each file there is a `Page` class that is responsible for interacting with the page and a `PageAssertions` class which is responsible for asserting behaviour of a page.
 
 The `BasePage` contains properties and behaviour common to all the pages. 
 
-The `PageUtilities` class is accessible through the `BasePage` and is for 
+The `PageUtilities` class is accessible through the `BasePage` and is for methods that could be used on any page but are independent
 
 ## Do/do nots
 
