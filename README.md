@@ -1,5 +1,7 @@
 # Playwright Template
 
+[![Build Status](https://dev.azure.com/ukhogov/Pipelines/_apis/build/status/UKHO.playwright-template?branchName=main)](https://dev.azure.com/ukhogov/Pipelines/_build/latest?definitionId=318&branchName=main)
+
 This project acts as a template and exemplar to using Playwright, Typescript and the Page Object Model design pattern to test a multipage application.
 
 
