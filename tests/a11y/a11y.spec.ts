@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { checkA11y, ConfigOptions, configureAxe, injectAxe, Options } from 'axe-playwright';
-import { FormPage } from '../page-object-model/formpage';
-import { HomePage } from '../page-object-model/homepage';
+import { FormPage } from '../page-object-model/pages/formpage';
+import { HomePage } from '../page-object-model/pages/homepage';
 
 test.describe('A11y tests', () => {
   const defaultCheckA11yOptions: Options = {
