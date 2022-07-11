@@ -1,6 +1,6 @@
 // global-setup.ts
 import { chromium, FullConfig } from '@playwright/test';
-import { LoginPage } from './page-object-model/loginpage';
+import { LoginPage } from './page-object-model/pages/loginpage';
 
 //This function is run once at the beginning of the test run
 async function globalSetup(config: FullConfig) {
