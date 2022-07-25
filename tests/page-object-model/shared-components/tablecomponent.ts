@@ -2,19 +2,25 @@ import { Page, expect, Locator } from "@playwright/test";
 
 export class TableComponent {
     readonly expect: TableComponentAssertions;
-    readonly tableComponentLocator: Locator
-    readonly rowsLocator: Locator
+    readonly tableComponentLocator: Locator;
+    readonly rowsLocator: Locator;
+    readonly filterInputLocator: Locator;
 
     constructor(readonly page: Page) {
         this.expect = new TableComponentAssertions(this);
 
         this.tableComponentLocator = page.locator("app-form-results");
         this.rowsLocator = this.tableComponentLocator.locator("tr");
+        this.filterInputLocator = this.tableComponentLocator.locator("input");
     }
 
     cellLocator(row: number, column: number): Locator {
         return this.rowsLocator.nth(row).locator('td').nth(column);
     }
+    
+    async filterTo(arg: string): Promise<void> {
+        await this.filterInputLocator.fill(arg);
+    }    
 }
 
 class TableComponentAssertions {
