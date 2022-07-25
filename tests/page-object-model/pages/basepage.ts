@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import { PageUtilities } from "./pageutilities";
+import { PageUtilities } from "../pageutilities";
 
 export abstract class BasePage {
 
