@@ -36,11 +36,11 @@ test.describe('Form page', () => {
         });
     });
 
-    test.fixme('valid details should allow form submit and display details on results page', async () => {
+    test('valid details should allow form submit and display details on results page', async () => {
         await formPage.fillFormWithValidDetails();
         await formPage.submitForm();
         
         await resultsPage.expect.toBeOnResultsPage();
-        await resultsPage.expect.toHaveValuesFromFormPage();
+        await resultsPage.table.expect.toOnlyHaveValues(formPage.submittedValues);
     });
 });
