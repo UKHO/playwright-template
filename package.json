@@ -37,7 +37,7 @@
     "@angular-devkit/build-angular": "14.2.1",
     "@angular/cli": "14.2.1",
     "@angular/compiler-cli": "14.2.0",
-    "@playwright/test": "1.22.2",
+    "@playwright/test": "1.25.1",
     "axe-playwright": "1.1.11"
   }
 }
