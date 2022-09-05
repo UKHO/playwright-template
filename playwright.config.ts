@@ -21,20 +21,30 @@ const config: PlaywrightTestConfig = {
      */
     timeout: 5000
   },
+  /* Configures the location of global setup which contains code executed before the playwright tests start */
   globalSetup: require.resolve('./tests/global-setup'),
+
+  /***** The CI variable must be set in the pipeline for these to behave correctly on build *****/
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env['CI'],
   /* Retry on CI only - this will allow us to record a trace*/
   retries: process.env['CI'] ? 1 : 0,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env['CI'] ? [['junit', { outputFile: 'uiTestResults.xml' }]] : [['html']],
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+
+  /* Test options used by default for all tests. These can be overridden in a specific test
+   * See https://playwright.dev/docs/api/class-testoptions for more info. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     screenshot: 'only-on-failure',
+
+    /* This storage state (snapshot of cookies etc in browser) is configured in global-setup.ts
+       It can be overridden in a test (see ./tests/component/loginpage.spec.ts) */
     storageState: 'loggedInStorageState.json',
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+
+    /* Collect trace when retrying the failed test (enabled on CI above). See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
 
