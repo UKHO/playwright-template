@@ -4,7 +4,6 @@
 
 This project acts as a template and exemplar to using Playwright, Typescript and the Page Object Model design pattern to test a multipage application.
 
-
 ## Contents
 
 * [Run tests](#run-tests)
@@ -16,7 +15,13 @@ This project acts as a template and exemplar to using Playwright, Typescript and
 
 ---
 
-## Run tests
+## Getting started
+
+**Before using this project it is expected that you have some experience with Playwright.** Follow the [official Playwright Getting Started Guide](https://playwright.dev/docs/intro) to get going with your first test and to become familiar with Playwright concepts.
+
+It is advised that you use VS Code and the [Playwright Test for VSCode](https://playwright.dev/docs/getting-started-vscode) extension
+
+### Run tests
 
 From the project directory run:
 
@@ -25,7 +30,9 @@ From the project directory run:
 
 See [the Playwright command line docs](https://playwright.dev/docs/test-cli) for more info.
 
-## Launch Application under test
+You can also run tests in the UI using the [Playwright Test for VSCode](https://playwright.dev/docs/getting-started-vscode) extension
+
+### Launch Application under test
 
 From the project directory run `ng serve` to spin up the web server and navigate to <http://localhost:4200/> - you don't need to do this before running tests as that's handled by the Playwright Test framework.
 
@@ -47,7 +54,7 @@ Within the tests folder there is a sub folder for each type of test and a sub fo
 
 The `page-object-model` folder contains a file for each web page - within each file there is a `Page` class that is responsible for interacting with the page and a `PageAssertions` class which is responsible for asserting behaviour of a page.
 
-The `BasePage` contains properties and behaviour common to all the pages. 
+The `BasePage` contains properties and behaviour common to all the pages.
 
 The `PageUtilities` class is accessible through the `BasePage` and is for methods that could be used on any page but are independent
 
@@ -62,6 +69,7 @@ The `PageUtilities` class is accessible through the `BasePage` and is for method
 * Use [locator assertions](https://playwright.dev/docs/test-assertions) to verify screen content
 
 ### Do not
+
 * **Never** use `$` or `$$` to select elements - use [`locator`](https://playwright.dev/docs/locators) to select elements
 * **Never** use `$eval` or `$$eval` - use [`locator.evaluate` or `locator.evaluateAll`](https://playwright.dev/docs/api/class-locator#locator-evaluate)
 * **Avoid** xpath and selectors tied to page structure
