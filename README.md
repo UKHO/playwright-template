@@ -102,6 +102,7 @@ When a test fails in the pipeline, Playwright is configured to retry it and reco
 * Use the [page object model](docs/pageobjectmodel.md) to retrieve information from the screen, drive the application and assert that screen elements are correct
 * Create `locator` properties at the top of the relevant `Page` class and populate them in the constructor. Use these properties to access the screen
 * Use [locator assertions](https://playwright.dev/docs/test-assertions) to verify screen content
+* Use [`global-setup.ts`](tests/global-setup.ts) to run login code once and save the state before any tests are run. Use the appropriate storage state in the tests to reduce run time
 
 ### Do not
 

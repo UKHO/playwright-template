@@ -69,7 +69,7 @@ class FormPageAssertions {
     constructor(readonly formPage: FormPage) {
     }
 
-    async toHaveDisabledSubmitButton(): Promise<void> {
+    async toBeUnableToSubmitForm(): Promise<void> {
         await expect(this.formPage._submitButtonFieldLocator).not.toBeEnabled();
     }
 }
