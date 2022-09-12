@@ -4,7 +4,7 @@ This exemplar showcases a Page Object Model pattern. Good use of this pattern wi
 
 ## What is the Page Object Model pattern?
 
-A Page Object Model (POM) uses dedicated classes to interact with the web pages of a website under test. The test scripts use the POM to drive the application which allows for good code reuse, seperation of concerns and easy to read tests.
+A Page Object Model (POM) uses dedicated classes to interact with the web pages of a website under test. The test scripts use the POM to drive the application which allows for good code reuse, separation of concerns and easy to read tests.
 
 A test script is only concerned with the high level **intentions** of the user and so becomes very quick and easy to read and understand.
 
