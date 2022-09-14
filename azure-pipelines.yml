@@ -1,3 +1,6 @@
+# This is a demo pipeline
+
+# The `CI` variable is used by playwright.config.ts to configure retry and reporting behaviour
 variables:
 - name: CI
   value: true
@@ -46,3 +49,4 @@ steps:
     targetPath: '$(System.DefaultWorkingDirectory)/test-results'
     artifact: 'Test attachments'
     publishLocation: 'pipeline'
+  displayName: 'If failed then publish UI test attachments'
