@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
+import { WebsocketPageComponent } from './websocket-page/websocket-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
     FormResultsComponent,
     WelcomeComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    WebsocketPageComponent
   ],
   imports: [
     BrowserModule,
