@@ -6,11 +6,9 @@ const wss = new wsModule.WebSocketServer({ server });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function message(data) {
-    console.log('received: %s', data);
-    ws.send(JSON.stringify('Thanks for the data, you made my day :-)'));
+    console.log(`received: ${data}`);
+    ws.send(JSON.stringify(`Thanks for the ${data}`));
   });
-
-  ws.send(JSON.stringify('something'));
 });
 
 server.listen(8080);
