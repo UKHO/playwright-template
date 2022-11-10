@@ -11,4 +11,4 @@ wss.on('connection', function connection(ws) {
   });
 });
 
-server.listen(8080);
+server.listen(6789);
