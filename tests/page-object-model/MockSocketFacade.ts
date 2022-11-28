@@ -13,10 +13,12 @@ export class MockSocketFacade {
     public async startServer() {
         this.socketServer = new WebSocketServer({ port: port });
 
+        //this is the bit that lets us get into Playwright. 
+        //Inspired by https://github.com/kylecoberly/playwright-socket-mocking-example#whats-with-the-weird-promises-thing
         let resolve: (payload?: unknown) => void
         const promise = new Promise((_resolve) => {
             resolve = _resolve
-        })
+        });
 
         //on connection
         this.socketServer.on("connection", async (socket: WebSocket) => {
@@ -37,6 +39,7 @@ export class MockSocketFacade {
     }
 
     public stopServer() {
+        this.socket.close();
         this.socketServer.close();
     }
 

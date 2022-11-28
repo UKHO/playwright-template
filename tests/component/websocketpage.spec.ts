@@ -9,14 +9,23 @@ test.describe('Websocket page tests', () => {
   test.beforeEach(async ({ page }) => {
     websocketPage = new WebsocketPage(page);
     mockSocket = new MockSocketFacade();
+
     await mockSocket.startServer();
     await websocketPage.navigateTo();
+  });
+
+  test.afterEach(async () => {
+    mockSocket.stopServer();
   });
 
   test('should display message from websocket', async () => {
     await websocketPage.expect.toHaveLastMessage('');
     mockSocket.sendMessage('I am a message');
     await websocketPage.expect.toHaveLastMessage('I am a message');
+  });
+  
+  test('should send "Hello" and then "count x" messages', async () => {
+
   });
 
 });

@@ -11,7 +11,7 @@ export abstract class BasePage {
     constructor(readonly page: Page) {
         this._popupCloseLocator = this.page.locator('"Click here to hide popup"');
 
-        this.utilities = new Utilities(page);
+        this.utilities = new Utilities();
         this.nav = new NavbarComponent(page);
     }
 
