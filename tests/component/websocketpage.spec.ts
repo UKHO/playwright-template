@@ -10,7 +10,7 @@ test.describe('Websocket page tests', () => {
     websocketPage = new WebsocketPage(page);
     mockSocket = new MockSocketFacade();
 
-    await mockSocket.startServer();
+    mockSocket.startServer();
     await websocketPage.navigateTo();
   });
 
@@ -25,7 +25,10 @@ test.describe('Websocket page tests', () => {
   });
   
   test('should send "Hello" and then "count x" messages', async () => {
-
+    await mockSocket.expectToHaveMessage('"Hello"');
+    await mockSocket.expectToHaveMessage('"count 1"');
+    await mockSocket.expectToHaveMessage('"count 2"');
+    await mockSocket.expectToHaveMessage('"count 3"');
   });
 
 });
