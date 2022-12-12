@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { MockSocketFacade } from 'tests/page-object-model/MockSocketFacade';
+import { MockSocketFacade } from 'tests/page-object-model/mockSocketFacade';
 import { WebsocketPage } from 'tests/page-object-model/pages/websocketpage';
 
 test.describe('Websocket page tests', () => {
