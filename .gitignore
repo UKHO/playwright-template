@@ -28,6 +28,12 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Visual Studio/Dot Net
+.vs/
+bin/
+obj/
+*.user
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -40,7 +46,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
 
 test-results/
 playwright-report/
