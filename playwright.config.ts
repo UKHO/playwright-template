@@ -22,13 +22,12 @@ const config: PlaywrightTestConfig = {
     timeout: 5000
   },
 
-  /**  
-   * By default test files run in parallel and tests within a file run synchronously
-   * Ordinarily we recommend setting fullyParallel to true to enable true parallel exection
-   * In this example however we are using a mock websocket server which can only be used by one test at a time
-   * See https://playwright.dev/docs/test-parallel 
-   **/
-  //fullyParallel: true,
+  /* Sets all tests to run in parallel - note this makes beforeall and afterall hooks execute per test.
+   * Note that there is usually a better way of doing things than beforeall and afterall (such as 
+   * using global-setup) so this shouldn't be an issue.
+   * Also note that parallelisation can be disabled in a specific test fixture
+   * See https://playwright.dev/docs/test-parallel */
+  fullyParallel: true,
   
   /* Configures the location of global setup which contains code executed before the playwright tests start */
   globalSetup: require.resolve('./tests/global-setup'),

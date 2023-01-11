@@ -3,10 +3,6 @@ import { checkA11y, injectAxe, Options } from 'axe-playwright';
 import { FormPage } from '../page-object-model/pages/formpage';
 import { HomePage } from '../page-object-model/pages/homepage';
 
-//This test.describe.configure allows the tests within this file to be parallelised
-//Due to the websockets tests we can't have full parallelisation by default.
-test.describe.configure({ mode: 'parallel' });
-
 test.describe('A11y tests', () => {
   const defaultCheckA11yOptions: Options = {
     axeOptions: {

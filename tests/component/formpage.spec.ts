@@ -2,10 +2,6 @@ import { test } from '@playwright/test';
 import { FormPage } from '../page-object-model/pages/formpage';
 import { ResultsPage } from '../page-object-model/pages/resultsPage';
 
-//This test.describe.configure allows the tests within this file to be parallelised
-//Due to the websockets tests we can't have full parallelisation by default.
-test.describe.configure({ mode: 'parallel' });
-
 test.describe('Form page', () => {
     let formPage: FormPage;
     let resultsPage: ResultsPage;
