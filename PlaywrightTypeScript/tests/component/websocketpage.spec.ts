@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { MockSocketFacade } from 'tests/page-object-model/mockSocketFacade';
-import { WebsocketPage } from 'tests/page-object-model/pages/websocketpage';
+import { MockSocketFacade } from '../page-object-model/mockSocketFacade';
+import { WebsocketPage } from '../page-object-model/pages/websocketpage';
 
 // Due to the websockets tests launching a websocket server on a specific port,
 // we cannot have websocket tests running in parallel.
