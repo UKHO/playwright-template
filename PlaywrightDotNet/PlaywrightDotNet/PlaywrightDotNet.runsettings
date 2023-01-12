@@ -7,4 +7,8 @@
       <Headless>false</Headless>
     </LaunchOptions>
   </Playwright>
+
+  <TestRunParameters>
+    <Parameter name="RecordTrace" value="false" />
+  </TestRunParameters>
 </RunSettings>
