@@ -39,6 +39,14 @@ From the project directory run `ng serve` to spin up the web server and navigate
 
 The app will automatically reload if you change any of the source files.
 
+### Launch Websocket Server
+
+A 'Live' websocket server can be launched from the terminal by running:
+
+`node ./src/servers/websocket-server.js`
+
+This is not required for the tests (as they use a mock websocket server) but can be useful for interacting with the test application outside of the tests.
+
 ## Structure of this project
 
 The root contains the [pipeline](#pipeline), website config and [Playwright config](playwright.config.ts) files.
@@ -71,7 +79,10 @@ This contains the tests for end-to-end flows through an application. All tests u
 
 This folder is the root of the Page Object Model.
 
-Alongside the `pages` and `shared-components` folders, it contains the `Utilities` class which allows for extension of Playwright functionality. The `Utilities` object is accessible through the `BasePage` and could also be used if needed in a component.
+Alongside the `pages` and `shared-components` folders, it contains:
+
+* The `Utilities` class which allows for extension of Playwright functionality.
+* The `MockSocketFacade` class which demonstrates how to spin up a Websocket server for tests in Playwright and send and receive messages from it.
 
 ### `tests/page-object-model/pages`
 

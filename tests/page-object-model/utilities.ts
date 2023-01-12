@@ -1,9 +1,6 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator } from "@playwright/test";
 
 export class Utilities {
-    constructor(readonly page: Page) {
-    }
-    
     /**
      * Uses a retry pattern to wait for the locator to be visible.
      * 
@@ -12,20 +9,29 @@ export class Utilities {
      * then use environment variables to determine whether or not to look for it
      * @param {Locator} locator
      */
-    async waitForVisibleWithoutThrowing(locator: Locator): Promise<boolean> {
-        const timeout = 5000 // We need to use a relatively short timeout to ensure we don't hold up tests
-        const maxtime = Date.now() + timeout;
-        const step = 500;
-      
-        while (Date.now() < maxtime) {
-          if (await locator.isVisible()) {
-            return true;
-          }
-          else {
-            await this.page.waitForTimeout(step);
-          }
-        }  
+    static async waitForVisibleWithoutThrowing(locator: Locator): Promise<boolean> {
+        let isVisible = await this.waitUntilTrueOrTimeout(() => locator.isVisible())        
+        return isVisible;
+    }
 
-        return false;
+    static async waitUntilTrueOrTimeout(action: () => Promise<boolean>, timeout: number = 5000): Promise<boolean> {
+      const maxtime = Date.now() + timeout;
+      const step = 500;
+    
+      while (Date.now() < maxtime) {
+        if (await action()) {
+          return true;
+        }
+        else {
+          await this.delay(step);
+        }
+      }
+
+      return false;
+    }
+
+    private static delay(ms: number)
+    {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
 }

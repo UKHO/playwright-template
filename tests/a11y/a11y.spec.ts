@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { checkA11y, ConfigOptions, configureAxe, injectAxe, Options } from 'axe-playwright';
+import { checkA11y, injectAxe, Options } from 'axe-playwright';
 import { FormPage } from '../page-object-model/pages/formpage';
 import { HomePage } from '../page-object-model/pages/homepage';
 

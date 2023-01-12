@@ -16,10 +16,6 @@ h6 {
   margin: 8px 0;
 }
 
-p {
-  margin: 0;
-}
-
 .spacer {
   flex: 1;
 }
@@ -168,4 +164,9 @@ button:not(:disabled):hover{
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+}
+
+.websocket-received-message {
+  background-color: #174d17;
+  color: #fff;
 }

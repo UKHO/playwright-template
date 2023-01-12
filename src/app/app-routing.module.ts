@@ -5,6 +5,7 @@ import { FormResultsComponent } from './form/form-results.component';
 import { MyFormComponent } from './form/my-form.component';
 import { LoginComponent } from './login/login.component';
 import { LoginPageGuard } from './login/loginpage.guard';
+import { WebsocketPageComponent } from './websocket-page/websocket-page.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
   {path: 'form', component: MyFormComponent, canActivate: [AuthGuard]},
   {path: 'form-results', component: FormResultsComponent, canActivate: [AuthGuard]},
-  {path: 'form-results/:isExample', component: FormResultsComponent, canActivate: [AuthGuard]}
+  {path: 'form-results/:isExample', component: FormResultsComponent, canActivate: [AuthGuard]},
+  {path: 'websocket-page', component: WebsocketPageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

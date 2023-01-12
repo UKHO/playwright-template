@@ -25,6 +25,7 @@ const config: PlaywrightTestConfig = {
   /* Sets all tests to run in parallel - note this makes beforeall and afterall hooks execute per test.
    * Note that there is usually a better way of doing things than beforeall and afterall (such as 
    * using global-setup) so this shouldn't be an issue.
+   * Also note that parallelisation can be disabled in a specific test fixture
    * See https://playwright.dev/docs/test-parallel */
   fullyParallel: true,
   

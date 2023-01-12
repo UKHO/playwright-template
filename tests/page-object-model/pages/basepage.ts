@@ -5,13 +5,11 @@ import { NavbarComponent } from "../shared-components/navbarcomponent";
 export abstract class BasePage {
 
     private readonly _popupCloseLocator: Locator;
-    protected readonly utilities: Utilities;
     readonly nav: NavbarComponent;
 
     constructor(readonly page: Page) {
         this._popupCloseLocator = this.page.locator('"Click here to hide popup"');
 
-        this.utilities = new Utilities(page);
         this.nav = new NavbarComponent(page);
     }
 
@@ -25,7 +23,7 @@ export abstract class BasePage {
     }
 
     private async handleRandomPopup() {
-        const popupOpen = await this.utilities.waitForVisibleWithoutThrowing(this._popupCloseLocator);
+        const popupOpen = await Utilities.waitForVisibleWithoutThrowing(this._popupCloseLocator);
         
         if (popupOpen)
             await this._popupCloseLocator.click();
