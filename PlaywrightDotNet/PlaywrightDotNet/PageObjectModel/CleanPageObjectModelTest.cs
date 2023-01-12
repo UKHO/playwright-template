@@ -4,6 +4,7 @@ namespace PlaywrightDotNet.PageObjectModel
 {
     public class CleanPageObjectModelTest: PageTest
     {
+        private Settings _settings;
         protected IFormPage FormPage { get; private set; }
         protected IHomePage Homepage { get; private set; }
         protected ILoginPage LoginPage { get; private set; }
@@ -19,22 +20,34 @@ namespace PlaywrightDotNet.PageObjectModel
         }
 
         [SetUp]
-        public async Task StartTrace()
+        public async Task SetUp()
         {
-            await Context.Tracing.StartAsync(new TracingStartOptions
+            _settings = new Settings();
+
+            if (_settings.RecordTrace)
             {
-                Screenshots = true,
-                Snapshots = true
-            });
+                await Context.Tracing.StartAsync(new()
+                {
+                    Screenshots = true,
+                    Snapshots = true,
+                    Sources = true
+                });
+            }
         }
 
         [TearDown]
-        public async Task StopTrace()
+        public async Task TearDown()
         {
-            await Context.Tracing.StopAsync(new TracingStopOptions
+            if (_settings.RecordTrace)
             {
-                Path= "trace.zip"
-            });
+                var traceFileName = $"playwright_trace_{TestContext.CurrentContext.Test.MethodName}.zip";
+                await Context.Tracing.StopAsync(new()
+                {
+                    Path = traceFileName
+                });
+
+                TestContext.AddTestAttachment(traceFileName);
+            }
         }
     }
 }
