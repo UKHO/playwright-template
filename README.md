@@ -22,6 +22,11 @@ This project acts as a template and exemplar to using Playwright, Typescript and
 
 It is advised that you use VS Code and the [Playwright Test for VSCode](https://playwright.dev/docs/getting-started-vscode) extension
 
+For first time environment setup run:
+
+* `npm install`
+* `npx playwright install` to download the latest playwright browser binaries. Make sure you run this command as an admin user!
+
 ### Run tests
 
 From the project directory run:
