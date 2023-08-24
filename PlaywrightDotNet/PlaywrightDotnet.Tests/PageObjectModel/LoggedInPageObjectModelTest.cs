@@ -1,6 +1,4 @@
-﻿using PlaywrightDotNet.PageObjectModel.Pages;
-
-namespace PlaywrightDotNet.PageObjectModel
+﻿namespace PlaywrightDotnet.Tests.PageObjectModel
 {
     public class LoggedInPageObjectModelTest: CleanPageObjectModelTest
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace PlaywrightDotnet.Tests.PageAssertions;
+namespace PlaywrightDotnet.Tests.Pages.PageAssertions;
 
 public class ResultsPageAssertions
 {

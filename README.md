@@ -29,6 +29,8 @@ For first time environment setup run:
 
 ### Run tests
 
+## TypeScript
+
 From the project directory run:
 
 * `npx playwright test` to run all tests headless.
@@ -48,9 +50,21 @@ The app will automatically reload if you change any of the source files.
 
 A 'Live' websocket server can be launched from the terminal by running:
 
-`node ./src/servers/websocket-server.js`
+## C#
 
-This is not required for the tests (as they use a mock websocket server) but can be useful for interacting with the test application outside of the tests.
+Open the project in Visual Studio or Rider
+
+### Run in an IDE
+
+1. You will need to start app see Launch Application under test.
+
+2. If using Rider, from the top toolbar, click `Tests` -> `Unit Testing Settings...` -> `Unit Testing Settings` -> `Test Runner` then scroll down to `Test Settings`, then select the `PlaywrightDotnet.Tests.runsettings` file in the PlaywrightDotnet.Tests folder.
+
+3. If using Visual Studio, from the top toolbar, click `Tests` -> `Configure Run Settings` -> `Select solution wide Runsettings file`, then select the `PlaywrightDotnet.Tests.runsettings` file in the PlaywrightDotnet.Tests folder.
+
+4. Go to the test runner and run the tests.
+
+You will only have to set the .runsettings file once.
 
 ## Structure of this project
 

@@ -1,7 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-using PlaywrightDotnet.Tests.Pages;
 
-namespace PlaywrightDotnet.Tests.PageAssertions;
+namespace PlaywrightDotnet.Tests.Pages.PageAssertions;
 
 public class HomePageAssertions
 {
