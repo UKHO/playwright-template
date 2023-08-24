@@ -58,11 +58,13 @@ Open the project in Visual Studio or Rider
 
 1. You will need to start app see Launch Application under test.
 
-2. If using Rider, from the top toolbar, click `Tests` -> `Unit Testing Settings...` -> `Unit Testing Settings` -> `Test Runner` then scroll down to `Test Settings`, then select the `PlaywrightDotnet.Tests.runsettings` file in the PlaywrightDotnet.Tests folder.
+2. You may need to build the project then navigate to the debug bin and run pwsh playwright.ps1 install
 
-3. If using Visual Studio, from the top toolbar, click `Tests` -> `Configure Run Settings` -> `Select solution wide Runsettings file`, then select the `PlaywrightDotnet.Tests.runsettings` file in the PlaywrightDotnet.Tests folder.
+3. If using Rider, from the top toolbar, click `Tests` -> `Unit Testing Settings...` -> `Unit Testing Settings` -> `Test Runner` then scroll down to `Test Settings`, then select the `PlaywrightDotnet.Tests.runsettings` file in the PlaywrightDotnet.Tests folder.
 
-4. Go to the test runner and run the tests.
+4. If using Visual Studio, from the top toolbar, click `Tests` -> `Configure Run Settings` -> `Select solution wide Runsettings file`, then select the `PlaywrightDotnet.Tests.runsettings` file in the PlaywrightDotnet.Tests folder.
+
+5. Go to the test runner and run the tests.
 
 You will only have to set the .runsettings file once.
 
