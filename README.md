@@ -14,6 +14,25 @@ This project acts as a template and exemplar to using Playwright in Typescript a
 
 ---
 
+### Launch Websocket Server
+A 'Live' websocket server can be launched from the terminal by running:
+
+node ./src/servers/websocket-server.js
+
+This is not required for the tests (as they use a mock websocket server) but can be useful for interacting with the test application outside of the tests.
+
+## Structure of this project
+
+The root contains the [pipeline](#pipeline), website config and [Playwright config](playwright.config.ts) files.
+
+### `docs`
+
+Further documentation is found in the docs folder.
+
+### `ApplicationUnderTest`
+
+This contains the website under test. This is written in angular and is **not** designed to be used as an exemplar for production code. See [Launch Application under test](ApplicationUnderTest/README.md#launch-application-under-test) for details on launching the website.
+
 ## Test projects
 
 Before using this project it is expected that you have some experience with Playwright. Follow the official Playwright Getting Started Guide to get going with your first test and to become familiar with Playwright concepts.
@@ -47,25 +66,6 @@ You can also run tests in the UI using the Playwright Test for VSCode extension
 From the project directory run ng serve to spin up the web server and navigate to http://localhost:4200/ - you don't need to do this before running tests as that's handled by the Playwright Test framework.
 
 The app will automatically reload if you change any of the source files.
-
-### Launch Websocket Server
-A 'Live' websocket server can be launched from the terminal by running:
-
-node ./src/servers/websocket-server.js
-
-This is not required for the tests (as they use a mock websocket server) but can be useful for interacting with the test application outside of the tests.
-
-## Structure of this project
-
-The root contains the [pipeline](#pipeline), website config and [Playwright config](playwright.config.ts) files.
-
-### `docs`
-
-Further documentation is found in the docs folder.
-
-### `ApplicationUnderTest`
-
-This contains the website under test. This is written in angular and is **not** designed to be used as an exemplar for production code. See [Launch Application under test](ApplicationUnderTest/README.md#launch-application-under-test) for details on launching the website.
 
 ## Page Object Model Pattern
 
