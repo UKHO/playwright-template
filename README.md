@@ -16,10 +16,44 @@ This project acts as a template and exemplar to using Playwright in Typescript a
 
 ## Test projects
 
-* C#
-* TypeScript
+Before using this project it is expected that you have some experience with Playwright. Follow the official Playwright Getting Started Guide to get going with your first test and to become familiar with Playwright concepts.
+
+## C#
+It is advised that you use Visual Studio or JetBrains Rider.
+
+Build the project.
+
+Use the test runner in Visual Studio or Rider to run he tests
+
+## TypeScript
+
+It is advised that you use VS Code and the Playwright Test for VSCode extension
+
+For first time environment setup run:
+
+npm install
+npx playwright install to download the latest playwright browser binaries. Make sure you run this command as an admin user!
+Run tests
+From the project directory run:
+
+npx playwright test to run all tests headless.
+npx playwright test <path to test file> --headed to run all tests in a file in a headed browser
+See the Playwright command line docs for more info.
+
+You can also run tests in the UI using the Playwright Test for VSCode extension
 
 ### Launch Application under test
+
+From the project directory run ng serve to spin up the web server and navigate to http://localhost:4200/ - you don't need to do this before running tests as that's handled by the Playwright Test framework.
+
+The app will automatically reload if you change any of the source files.
+
+### Launch Websocket Server
+A 'Live' websocket server can be launched from the terminal by running:
+
+node ./src/servers/websocket-server.js
+
+This is not required for the tests (as they use a mock websocket server) but can be useful for interacting with the test application outside of the tests.
 
 ## Structure of this project
 
