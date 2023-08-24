@@ -42,7 +42,7 @@ It is advised that you use Visual Studio or JetBrains Rider.
 
 Build the project.
 
-Use the test runner in Visual Studio or Rider to run he tests
+Use the test runner in Visual Studio or Rider to run he tests.
 
 ## TypeScript
 
