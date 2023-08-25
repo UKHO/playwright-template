@@ -56,7 +56,7 @@ Open the project in Visual Studio or Rider
 
 ### Run in an IDE
 
-1. You will need to start app see Launch Application under test.
+1. You will need to start the app see Launch Application under test.
 
 2. You may need to build the project then navigate to the debug bin and run pwsh playwright.ps1 install
 
