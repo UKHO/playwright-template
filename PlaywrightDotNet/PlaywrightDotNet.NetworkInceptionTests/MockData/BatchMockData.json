@@ -1,0 +1,61 @@
+{
+  "count": 1,
+  "total": 1,
+  "entries": [
+    {
+      "batchId": "7177b17d-74b7-4c0f-849f-c1234c68fac2",
+      "status": "Committed",
+      "allFilesZipSize": 138,
+      "attributes": [
+        {
+          "key": "MediaType",
+          "value": "Response Altered by Playwright"
+        },
+        {
+          "key": "Product Type",
+          "value": "TestProduct"
+        },
+        {
+          "key": "Year",
+          "value": "Year Altered from Playwright"
+        }
+      ],
+      "businessUnit": "ADDS",
+      "batchPublishedDate": "2022-09-16T11:28:33.713Z",
+      "expiryDate": "2049-01-22T13:05:10.14Z",
+      "files": [
+        {
+          "filename": "test.txt",
+          "fileSize": 22,
+          "mimeType": "image/jpeg",
+          "hash": null,
+          "attributes": [
+            {
+              "key": "filetype",
+              "value": "Country Delight"
+            }
+          ],
+          "links": {
+            "get": {
+              "href": "/batch/7177b17d-74b7-4c0f-849f-c7127c68fac2/files/test.txt"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "_Links": {
+    "self": {
+      "href": "/batch?limit=10&start=0&$filter=%28%28%24batchContains%28%27test%27%29%20OR%20contains%28filename%2C%20%27test%27%29%29%29"
+    },
+    "first": {
+      "href": "/batch?limit=10&start=0&$filter=%28%28%24batchContains%28%27test%27%29%20OR%20contains%28filename%2C%20%27test%27%29%29%29"
+    },
+    "next": {
+      "href": "/batch?limit=10&start=10&$filter=%28%28%24batchContains%28%27test%27%29%20OR%20contains%28filename%2C%20%27test%27%29%29%29"
+    },
+    "last": {
+      "href": "/batch?limit=10&start=10&$filter=%28%28%24batchContains%28%27test%27%29%20OR%20contains%28filename%2C%20%27test%27%29%29%29"
+    }
+  }
+}
