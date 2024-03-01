@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaywrightDotnet.Tests", "PlaywrightDotnet.Tests\PlaywrightDotnet.Tests.csproj", "{2902C7EF-FA97-4290-B7DA-154E52AEB2A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightDotNet.NetworkInceptionTests", "PlaywrightDotNet.NetworkInceptionTests\PlaywrightDotNet.NetworkInceptionTests.csproj", "{D3548993-F396-4E13-A771-D17A4DB06F7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightDotNet.NetworkInterceptionTests", "PlaywrightDotNet.NetworkInceptionTests\PlaywrightDotNet.NetworkInterceptionTests.csproj", "{D3548993-F396-4E13-A771-D17A4DB06F7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
