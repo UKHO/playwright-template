@@ -1,10 +1,5 @@
 ﻿using Microsoft.Playwright;
 using PlaywrightDotNet.NetworkInceptionTests.Support;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlaywrightDotNet.NetworkInceptionTests.Pages
 {
@@ -36,6 +31,7 @@ namespace PlaywrightDotNet.NetworkInceptionTests.Pages
             await page1.Locator(PasswordFieldID).FillAsync(TestData.Password);
             await page1.GetByRole(AriaRole.Button, new() { Name = "Sign in" }).ClickAsync();
             await page1.CloseAsync();
+            await Page.GotoAsync("https://fss-dev.admiralty.co.uk/#/search");
         }
     }
 }

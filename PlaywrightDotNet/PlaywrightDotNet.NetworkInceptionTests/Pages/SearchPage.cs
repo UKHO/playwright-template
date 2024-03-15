@@ -1,15 +1,10 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlaywrightDotNet.NetworkInceptionTests.Pages
 {
     public class SearchPage : BasePage
     {
-        public SearchPage(IPage page):base(page)
+        public SearchPage(IPage page) : base(page)
         {
         }
 
@@ -27,9 +22,9 @@ namespace PlaywrightDotNet.NetworkInceptionTests.Pages
         {
             await SearchTextBoxLocator.FillAsync(SearchText);
             await SearchButtonLocator.ClickAsync();
-            await Assertions.Expect(FirstDivContent1Locator).ToContainTextAsync("UK Coastal");
-            await Assertions.Expect(FirstDivContent2Locator).ToContainTextAsync("2024-03-01");
-            await Assertions.Expect(FirstDivContent3Locator).ToContainTextAsync("S-111");
+            await Assertions.Expect(FirstDivContent1Locator).ToContainTextAsync("DVD");
+            await Assertions.Expect(FirstDivContent2Locator).ToContainTextAsync("AVCS");
+            await Assertions.Expect(FirstDivContent3Locator).ToContainTextAsync("2021");
         }
 
         public async Task Validate_SearchResult_Altered_ServerResponse_With_MockData(string SearchText)
@@ -43,12 +38,6 @@ namespace PlaywrightDotNet.NetworkInceptionTests.Pages
             //more on modify response can be found here -> https://playwright.dev/dotnet/docs/network#modify-responses
             await Page.RouteAsync("**/api/batch*", async route =>
             {
-                var response = await route.FetchAsync();
-                var body = await response.TextAsync();
-
-                var headers = response.Headers;
-                headers.Add("Content-Type", "text/html");
-
                 await route.FulfillAsync(new RouteFulfillOptions()
                 {
                     Body = text
