@@ -22,7 +22,7 @@
   "homepage": "https://github.com/UKHO/playwright-template#readme",
   "dependencies": {
     "@angular/animations": "^14.2.0",
-    "@angular/common": "^14.2.0",
+    "@angular/common": "^14.3.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "14.2.0",
